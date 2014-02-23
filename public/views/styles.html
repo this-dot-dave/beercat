@@ -1,0 +1,14 @@
+<!-- styles.html -->
+<div class="jumbotron">
+    <h2>{{ category.name }}</h2>
+</div>
+
+<div class="container">
+    <span ng-if="stylesByCategory">Styles in this category:</span>
+
+    <ul>
+        <li ng-repeat="style in stylesByCategory">
+            <a href="#/categories/{{category.id}}/style/{{style.id}}">{{ style.name }}</a>
+        </li>
+    </ul>
+</div>

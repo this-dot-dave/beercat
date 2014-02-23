@@ -1,0 +1,14 @@
+# Mac OSX finder files
+.DS_Store
+
+# Node modules defined in package.json, installed with NPM
+node_modules/
+
+# WIP - to be defined and installed with bower, using CDN for now
+public/lib
+
+# WIP - mongo files
+db/
+
+# rename env-public.json --> env.json, then add privite keys
+env.json

@@ -1,0 +1,41 @@
+<!-- beer.list.html -->
+<div class="jumbotron">
+    <h2>
+        {{ style.name }}
+    </h2>
+    <p class="small">{{ style.description }}</p>
+</div>
+
+<div class="container">
+
+    <ul class="pagination" ng-hide="pages.numberOfPages <= 1">
+        <li ng-hide="pages.currentPage === 1" ng-click="gotoPage(pages.currentPage - 1)">
+            <a href="javascript://">&laquo;</a>
+        </li>
+        <li ng-show="pages.currentPage === 1" class="disabled">
+            <span>&laquo;</span>
+        </li>
+
+        <li ng-repeat="pageNum in pages.list" ng-click="gotoPage(pageNum)" ng-class="{active: pages.currentPage === pageNum}">
+            <a href="javascript://">{{ pageNum }}</a>
+        </li>
+
+        <li ng-hide="pages.currentPage === pages.numberOfPages" ng-click="gotoPage(pages.currentPage + 1)">
+            <a href="javascript://">&raquo;</a>
+        </li>
+    </ul>
+
+    <p>
+        <span class="label label-default">{{ pages.totalResults }} Beers</span>
+    </p>
+
+    <ul class="list-unstyled">
+        <li ng-repeat="beer in beersByStyle">
+            <img ng-src="{{ fallbackProvider(beer.labels.icon) }}" alt="{{ beer.name }}" class="img-thumbnail pull-left" />
+            <div class="clearfix">
+                <a href="#/categories/{{style.categoryId}}/style/{{style.id}}/beer/{{beer.id}}">{{ beer.name }}</a><br/>
+                <span class="small">{{ beer.description | limitTo: 225 }}</span>
+            </div>
+        </li>
+    </ul>
+</div>

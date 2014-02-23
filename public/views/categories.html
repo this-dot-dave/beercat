@@ -1,0 +1,36 @@
+<!-- categories.html -->
+<div class="jumbotron">
+
+    <ng-include src="'images/pilsner-glass.svg'"></ng-include>
+
+    <!-- icon -->
+    <svg class="icon-large pull-left" viewBox="0 0 24 52">
+      <use xlink:href="#pilsner-glass"></use>
+    </svg>
+
+    <h1>Reinheitsgebot<br/> <small>the beer codification project</small></h1>
+
+</div>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-xs-6">
+            <h3 ng-if="categories">Ales</h3>
+            <ul class="list-unstyled">
+                <li ng-repeat="category in categories | filter: 'ale' ">
+                    <a href="#/categories/{{category.id}}">{{ category.name }}</a>&nbsp;<span class="small text-muted">-{{ styleCountByCategory(category.id, styles) }} styles</span>
+                </li>
+            </ul>
+        </div>
+        <div class="col-xs-6">
+            <h3 ng-if="categories">Lagers and Misfits</h3>
+            <ul class="list-unstyled">
+                <li ng-repeat="category in categories | filter: '!ale' ">
+                    <a href="#/categories/{{category.id}}">{{ category.name }}</a>&nbsp;<span class="small text-muted">-{{ styleCountByCategory(category.id, styles) }} styles</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>

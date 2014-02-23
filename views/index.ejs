@@ -1,0 +1,49 @@
+<!doctype html>
+<html ng-app="beercatApp">
+<head>
+    <meta charset="utf-8">
+    <title>BeerCat</title>
+    <link href="http://fonts.googleapis.com/css?family=Alice" rel="stylesheet" type="text/css">
+    <!-- Beer Favicon - Creative Commons, no atribution - http://www.favicon.cc/?action=icon&file_id=715096 -->
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAABgeEA//r+AAAAAADq6+cAEojVAPL3/wAEcuIAxM3aANvb2wAAd+UAN1B5AARn2ACussQAAVm1AMfL4ADo6OgAVpbdAGqj4QB0od4AH0mGAFmZ3QBijdUAcoSbAAB74wDo7vkA/Pv9AGKR2wCyvMoAAH3mAAJYuQBfmNAABHbhAAd63gAUS5sAAH/hAHOd0gDo6ecAusTVAAF65wCmq7kAztfhAG2i1QABYLQALma6AAVx1wDx7+8A4ODgAAJs3QAvm+wA9/v/AD2JwwAAZ9sAAorkAAOG5wDj6OsA3t7eAAeA3wAHSsEAIKT1AGGU3QClqcAABly4APD1+ABqgqwAtL/MAMHI5AAEVM8AprXIAOnh7wDg7fcAcpvaAAKD2ACIk6UAmLDPAD1MXwABhOYAAnrhAJWvygAAac8Aq7vZAFt1oQDi5/AAUaz3AAN04gAIUr0ASKTtAAB25QDg5usALYPPALzByAAJX9sAzdbfAGuf4QABYb0AbX6QAP3//wDAydMACTmIAGCl6gACZ9YAAYHoALXAzADj4eEAgJiqAAW0/gDc4ucAyM7eAC5xsAAHeuMA8PXzACtXlgDz+PsAWazwAASH6AABXdoAAW/ZAAB76QABsvwAYq/4AE6j6QBNe7QAU6DpAAGC5gDa4OUAAXnWAAVJyAACfdMAEab0ACuU2wDx9vkA6OvvAPT07gDd3d0A+ff2AF+Q3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgICAgICAgICAgICAgICAgICZ00WSDxlG14MAgICAgICAlkqXQ09HikyRAICAgICAgIFfnxzThQRBEouLQICAgICAUcACR93cH9fAoQCAgICAm00SxwXVVJ1GQIChQICAgJqOCImU3l2aDECAg8CAgICQXF6dC8QYjoOAgI3AgICAlA1ZFYLO1wwPwICCAICAgIKIkwGchoSgG4CAmYCAgICEyBsM0KGRlh4AySDAgICAmEsY1p9FSNJawICAgICAgIhHVQ5K09RRRgCAgICAgICJ0NAYFtXPm+BAgICAgICAgJ7JQcoaTaCAgICAgICAgICAgICAgICAgICAgICAv//AADAHwAAwB8AAMAHAADAFwAAwBsAAMAbAADAGwAAwBsAAMAbAADAAwAAwB8AAMAfAADAHwAA4D8AAP//AAA=" rel="icon" type="image/x-icon" />
+
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <script>
+        var appConfig = {};
+        appConfig.proxy_url = '<%= config.brewerydb.proxy_url %>' ;
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-resource.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-route.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/services/services.js"></script>
+    <script src="js/controllers/categories.js"></script>
+    <script src="js/controllers/styles.js"></script>
+    <script src="js/controllers/beer.list.js"></script>
+    <script src="js/controllers/beer.view.js"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <h1 ng-hide="homePage">
+                <small><a href="/">Reinheitsgebot</a></small>
+            </h1>
+        </div>
+    </div>
+    <div class="main container">
+        <div ng-view></div>
+    </div>
+    <hr>
+    <footer>
+        <p class="container">
+            <span class="logo-hopify pull-right"></span>
+            <span>&copy; Hopify 2014</span>
+        </p>
+    </footer>
+</body>
+</html>

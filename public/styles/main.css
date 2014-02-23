@@ -1,0 +1,46 @@
+/* -- main.css -- */
+
+.logo-hopify {
+    width: 81px;
+    height: 34px;
+    background-image: url('../images/hopify-logo-small.png');
+    background-repeat: no-repeat;
+    background-size: 81px 34px;
+}
+
+h1 {
+    font-family: 'Alice', serif;
+}
+
+/*  width="24.4" height="51.8"  */
+/* fill and fill-rule are SVG-speciifc properties, ignore CSSLint warnings */
+.icon {
+    width: 24px;
+    height: 52px;
+}
+
+.icon-large {
+    width: 84px;
+    height: 147px;
+}
+.glass-fill {
+    fill: #f7943a; /* amber */
+    fill-rule: nonzero;
+}
+.glass-foam {
+    fill: #ffffff;
+    fill-rule: nonzero;
+}
+
+.main {
+    margin-top: 90px;
+}
+footer {
+    font-size: 11px;
+    color: #ccc;
+}
+
+/* RETINA */
+@media only screen and (min-resolution: 2dppx), only screen and (-webkit-min-device-pixel-ratio: 2) {
+
+}
