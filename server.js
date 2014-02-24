@@ -5,8 +5,7 @@
 
 /* MODULE DEPENDENCIES */
 
-var common = require('./common'),
-    config = common.config();
+var config = require('./config/config');
 
 var express = require('express'),
     http = require('http'),
@@ -58,13 +57,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(app.router);
 
 // development only
-if (app.get('env') === 'development') {
-  app.use(express.errorHandler());
+if (process.env.NODE_ENV === 'development') {
+    app.use(express.errorHandler());
 }
 
 // production only
-if (app.get('env') === 'production') {
-  // TODO
+if (process.env.NODE_ENV === 'production') {
+    // TODO
 }
 
 
@@ -72,7 +71,7 @@ if (app.get('env') === 'production') {
 
 
 // reverse proxy, since the BreweryDB API does not support JSONP or CORS
-app.get(config.brewerydb.proxy_url + '*', function(req, res){
+app.get(config.brewerydb.proxyURL + '*', function(req, res){
 
     var externalApiCall = function(){
 
@@ -86,15 +85,15 @@ app.get(config.brewerydb.proxy_url + '*', function(req, res){
             return str.join("&");
         };
 
-        _.extend(req.query, {key: config.brewerydb.api_key});
+        _.extend(req.query, {key: config.brewerydb.apiKey});
 
         querystring = serialize(req.query);
 
-        req.url = config.brewerydb.api_url + _(req.path).strRight(config.brewerydb.proxy_url) + '?' + querystring;
+        req.url = config.brewerydb.apiURL + _(req.path).strRight(config.brewerydb.proxyURL) + '?' + querystring;
 
         // api response to cache
         request(req.url, function(error, response, body){
-            if (!error && response.statusCode == 200 && config.local_api_cache_enabled) {
+            if (!error && response.statusCode == 200 && config.brewerydb.localCaching) {
                 console.log( '- api response -' );
                 setCache(req.originalUrl, body);
             }
@@ -117,7 +116,7 @@ app.get(config.brewerydb.proxy_url + '*', function(req, res){
     };
 
 
-    if (config.local_api_cache_enabled) {
+    if (config.brewerydb.localCaching) {
 
         db.collection('apicache').findOne({ query: req.originalUrl }, function(err, cache){
 
@@ -181,5 +180,6 @@ app.get('*', function(req, res){
 /* START SERVER */
 
 http.createServer(app).listen(app.get('port'), function () {
+  console.log(config.app.name);
   console.log('Express server listening on port ' + app.get('port'));
 });

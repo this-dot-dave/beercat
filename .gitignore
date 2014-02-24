@@ -10,5 +10,5 @@ public/lib
 # WIP - mongo files
 db/
 
-# rename env-public.json --> env.json, then add privite keys
-env.json
+# environment variables (Heroku)
+.env
