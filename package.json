@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "The beer codification project.",
   "main": "server.js",
+  "engines": {
+    "node": "0.10.x"
+  },
   "dependencies": {
     "ejs": "~0.8.5",
     "express": "~3.2.6",
