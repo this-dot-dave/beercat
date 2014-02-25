@@ -13,9 +13,14 @@ var express = require('express'),
     request = require('request'),
     ejs = require('ejs');
 
+// database
 var mongo = require('mongodb'),
     mongoskin = require('mongoskin'),
-    db = mongoskin.db('localhost:27017/beercat', {safe: true});
+    mongoURI,
+    db;
+
+    mongoURI = config.mongoDB.host === 'local' ? config.mongoDB.local : config.mongoDB.mongoLab;
+    db = mongoskin.db(mongoURI, {safe: true});
 
 // Utilities
 var _  = require('underscore');

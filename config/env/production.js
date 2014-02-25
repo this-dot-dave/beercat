@@ -1,7 +1,11 @@
 'use strict';
 
 module.exports = {
-    db: process.env.MONGO_DB,
+    mongoDB: {
+        host: process.env.MONGODB_HOST,
+        local: process.env.LOCAL_MONGO,
+        mongoLab: process.env.MONGOLAB_URI
+    },
     app: {
         name: "BeerCat - Production"
     },
