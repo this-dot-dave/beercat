@@ -1,20 +1,36 @@
 {
   "name": "beercat",
-  "description": "a beer catalog app",
-  "version": "0.0.1",
-  "private": true,
-  "engines": {
-    "node": "0.10.x"
-  },
+  "version": "0.0.0",
+  "description": "The beer codification project.",
+  "main": "server.js",
   "dependencies": {
+    "ejs": "~0.8.5",
     "express": "~3.2.6",
-    "ejs": "*",
-    "request": "2.33.x",
-    "underscore": "~1.5.x",
-    "underscore.string": "~2.3.3",
-    "http-proxy": "~1.0.x",
-    "mongodb": "*",
-    "mongoskin": "*",
-    "moment": "*"
-  }
+    "mongodb": "~1.3.23",
+    "http-proxy": "~1.0.1",
+    "mongoskin": "~0.6.1",
+    "monk": "~0.7.1",
+    "moment": "~2.5.1",
+    "request": "~2.33.0",
+    "underscore": "~1.5.2",
+    "underscore.string": "~2.3.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/this-dot-dave/beercat.git"
+  },
+  "keywords": [
+    "beer"
+  ],
+  "author": "this-dot-dave",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/this-dot-dave/beercat/issues"
+  },
+  "homepage": "https://github.com/this-dot-dave/beercat"
 }
